@@ -1,0 +1,186 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://mths.be/utf8js"
+
+    >utf8 (v2.1.2)</a>
+</h1>
+<h4>A well-tested UTF-8 encoder/decoder written in JavaScript.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.utf8">module utf8</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utf8.decode">
+            function <span class="apidocSignatureSpan">utf8.</span>decode
+            <span class="apidocSignatureSpan">(byteString)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.utf8.encode">
+            function <span class="apidocSignatureSpan">utf8.</span>encode
+            <span class="apidocSignatureSpan">(string)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">utf8.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.utf8" id="apidoc.module.utf8">module utf8</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.utf8.decode" id="apidoc.element.utf8.decode">
+        function <span class="apidocSignatureSpan">utf8.</span>decode
+        <span class="apidocSignatureSpan">(byteString)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function utf8decode(byteString) {
+		byteArray = ucs2decode(byteString);
+		byteCount = byteArray.length;
+		byteIndex = 0;
+		var codePoints = [];
+		var tmp;
+		while ((tmp = decodeSymbol()) !== false) {
+			codePoints.push(tmp);
+		}
+		return ucs2encode(codePoints);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+utf8.encode(&#x27;\xA9&#x27;);
+// → &#x27;\xC2\xA9&#x27;
+// U+10001 LINEAR B SYLLABLE B038 E; see http://codepoints.net/U+10001
+utf8.encode(&#x27;\uD800\uDC01&#x27;);
+// → &#x27;\xF0\x90\x80\x81&#x27;
+```
+
+### `utf8.<span class="apidocCodeKeywordSpan">decode</span>(byteString)`
+
+Decodes any given UTF-8-encoded string (`byteString`) as UTF-8, and returns the UTF-8-decoded version of the string. It throws an
+ error when malformed UTF-8 is detected. (If you need to be able to decode encoded non-scalar values as well, use [WTF-8](https://
+mths.be/wtf8) instead.)
+
+```js
+utf8.decode(&#x27;\xC2\xA9&#x27;);
+// → &#x27;\xA9&#x27;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.utf8.encode" id="apidoc.element.utf8.encode">
+        function <span class="apidocSignatureSpan">utf8.</span>encode
+        <span class="apidocSignatureSpan">(string)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function utf8encode(string) {
+		var codePoints = ucs2decode(string);
+		var length = codePoints.length;
+		var index = -1;
+		var codePoint;
+		var byteString = &#x27;&#x27;;
+		while (++index &#x3c; length) {
+			codePoint = codePoints[index];
+			byteString += encodeCodePoint(codePoint);
+		}
+		return byteString;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    console.log(utf8);
+  }
+);
+```
+
+## API
+
+### `utf8.<span class="apidocCodeKeywordSpan">encode</span>(string)`
+
+Encodes any given JavaScript string (`string`) as UTF-8, and returns the UTF-8-encoded version of the string. It throws an error
+ if the input string contains a non-scalar value, i.e. a lone surrogate. (If you need to be able to encode non-scalar values as
+well, use [WTF-8](https://mths.be/wtf8) instead.)
+
+```js
+// U+00A9 COPYRIGHT SIGN; see http://codepoints.net/U+00A9
+utf8.encode(&#x27;\xA9&#x27;);
+// → &#x27;\xC2\xA9&#x27;
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
