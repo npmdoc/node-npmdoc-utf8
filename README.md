@@ -1,6 +1,6 @@
 # npmdoc-utf8
 
-#### api documentation for  [utf8 (v2.1.2)](https://mths.be/utf8js)  [![npm package](https://img.shields.io/npm/v/npmdoc-utf8.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-utf8) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-utf8.svg)](https://travis-ci.org/npmdoc/node-npmdoc-utf8)
+#### basic api documentation for  [utf8 (v2.1.2)](https://mths.be/utf8js)  [![npm package](https://img.shields.io/npm/v/npmdoc-utf8.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-utf8) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-utf8.svg)](https://travis-ci.org/npmdoc/node-npmdoc-utf8)
 
 #### A well-tested UTF-8 encoder/decoder written in JavaScript.
 
@@ -75,7 +75,8 @@
     "scripts": {
         "test": "node tests/tests.js"
     },
-    "version": "2.1.2"
+    "version": "2.1.2",
+    "bin": {}
 }
 ```
 

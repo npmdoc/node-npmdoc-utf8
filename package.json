@@ -1,6 +1,6 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "#### api documentation for  [utf8 (v2.1.2)](https://mths.be/utf8js)  [![npm package](https://img.shields.io/npm/v/npmdoc-utf8.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-utf8) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-utf8.svg)](https://travis-ci.org/npmdoc/node-npmdoc-utf8)",
+    "description": "#### basic api documentation for  [utf8 (v2.1.2)](https://mths.be/utf8js)  [![npm package](https://img.shields.io/npm/v/npmdoc-utf8.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-utf8) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-utf8.svg)](https://travis-ci.org/npmdoc/node-npmdoc-utf8)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "utf8": "*",
@@ -35,5 +35,5 @@
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.1"
+    "version": "2017.4.26"
 }
